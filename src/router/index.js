@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import HomePage from './../views/HomePage.vue'
 import Favorite from './../views/Favorite.vue'
-
+import Details from './../views/Details.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -15,5 +15,9 @@ export default new Router({
             path: '/favorite',
             component: Favorite,
         },
+        {
+            path: '/details/:id',
+            component: Details,
+        }
     ]
 })
