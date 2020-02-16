@@ -12,10 +12,8 @@ export const store = new Vuex.Store({
             let isFav = state.filmFavs.find(elem => elem === filmFav)
             if (isFav) {
                 state.filmFavs.splice(filmFav, 1);
-                console.log(state.favorites + 'Déjà Favoris');
             } else {
                 state.filmFavs.push(filmFav);
-                console.log(state.favorites + "Non favoris encore");
             }
         },
     },

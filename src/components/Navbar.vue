@@ -8,21 +8,14 @@
             v-for="routes in links"
             v-bind:key="routes.id"
             :to="`${routes.page}`"
-            >{{ routes.text }}</router-link
-          >
+          >{{ routes.text }}</router-link>
         </b-nav-item>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
-              >Chercher</b-button
-            >
+            <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit">Chercher</b-button>
           </b-nav-form>
         </b-navbar-nav>
       </b-collapse>
@@ -31,6 +24,8 @@
 </template>
 
 <script>
+// const axios = require("axios").default;
+
 export default {
   name: "Navbar",
   data() {
@@ -48,7 +43,14 @@ export default {
         }
       ]
     };
-  }
+  },
+  methods: {}
+
+  // mounted() {
+  //   axios
+  //     .get("http://www.omdbapi.com/?i=" + $Search + "&apikey=904eed5c") // on récupère l'API
+  //     .then(response => (this.filmDetail = response.data)); // on envoie dans l'array les données
+  // }
 };
 </script>
 

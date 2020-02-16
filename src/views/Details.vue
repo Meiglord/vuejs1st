@@ -1,15 +1,34 @@
 <template>
   <div>
-    <div>
-      {{ filmDetail }}
-      <p>{{ filmDetail.Title }}</p>
-      <b-card :title="filmDetail.Title" :img-src="filmDetail.Poster" img-top style="max-width: 20rem;" class="mb-2">
-        <b-card-text>Année : {{ filmDetail.Year }}</b-card-text>
-      </b-card>
-    </div>
+    <b-card>
+      <b-media no-body>
+        <b-media-aside vertical-align="center">
+          <img :src="filmDetail.Poster" />
+        </b-media-aside>
+        <b-media-body class="ml-3">
+          <h5 class="mt-0">{{filmDetail.Title}}</h5>
+          <p>
+            <b>Année :</b>
+            {{filmDetail.Released}}
+            <br />
+            <b>Durée :</b>
+            {{filmDetail.Runtime}}
+            <br />
+            <b>Type :</b>
+            {{filmDetail.Type}}
+            <br />
+            <b>Genre:</b>
+            {{filmDetail.Genre}}
+            <br />
+            <b>Scénario</b>
+            : {{filmDetail.Plot}}
+          </p>
+          <b-media></b-media>
+        </b-media-body>
+      </b-media>
+    </b-card>
   </div>
 </template>
-
 <script>
 const axios = require("axios").default;
 
@@ -18,8 +37,12 @@ export default {
   components: {},
   mounted() {
     axios
-      .get("http://www.omdbapi.com/?i=" + this.$route.params.id + "&apikey=904eed5c") // on récupère l'API
-      .then(response => (this.filmDetail = response.data)); // on envoie dans l'array les données
+      .get(
+        "http://www.omdbapi.com/?i=" +
+          this.$route.params.id +
+          "&apikey=904eed5c"
+      )
+      .then(response => (this.filmDetail = response.data));
   },
   methods: {},
   data() {
