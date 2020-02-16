@@ -8,8 +8,8 @@
       class="mb-2"
     >
       <b-card-text>Année : {{ filmData.Year }}</b-card-text>
-      <b-button :href="`#/details/${filmID}`">Voir la fiche du film</b-button>
-      <b-button size="sm" variant="outline-secondary" @click="addToFav(item)">Favoris</b-button>
+      <b-button :href="`#/details/${film}`">Voir la fiche du film</b-button>
+      <b-button size="sm" variant="outline-secondary" @click="addToFav(film)">Favoris</b-button>
     </b-card>
   </div>
 </template>
@@ -21,7 +21,7 @@ const axios = require("axios").default;
 export default {
   name: "FilmCard",
   props: {
-    filmID: String
+    film: String
   },
   state: {
     filmFavs: ""
@@ -38,7 +38,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://www.omdbapi.com/?i=" + this.filmID + "&apikey=904eed5c") // on récupère l'API
+      .get("http://www.omdbapi.com/?i=" + this.film + "&apikey=904eed5c") // on récupère l'API
       .then(response => (this.filmData = response.data)); // on envoie dans l'array les données
   }
 };

@@ -5,13 +5,13 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        filmFavs: ['tt1289403', 'tt1289403']
+        filmFavs: []
     },
     mutations: {
         addFavorite(state, filmFav) {
             let isFav = state.filmFavs.find(elem => elem === filmFav)
             if (isFav) {
-                state.filmFavs.splice(filmFav);
+                state.filmFavs.splice(filmFav, 1);
                 console.log(state.favorites + 'Déjà Favoris');
             } else {
                 state.filmFavs.push(filmFav);
@@ -22,6 +22,4 @@ export const store = new Vuex.Store({
     getters: {
         filmFavs: state => state.filmFavs
     }
-
-
 })

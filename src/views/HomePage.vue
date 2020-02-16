@@ -2,7 +2,7 @@
   <div class="global">
     <b-card-group deck>
       <div v-for="film in films" :key="film.imdbID">
-        <FilmCard :filmID="film.imdbID" />
+        <FilmCard :film="film.imdbID" />
       </div>
     </b-card-group>
   </div>
